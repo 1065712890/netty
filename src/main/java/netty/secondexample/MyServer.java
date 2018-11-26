@@ -1,4 +1,4 @@
-package netty.firstexample;
+package netty.secondexample;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -7,27 +7,27 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * @program: netty`
- * @description: netty server
+ * @program: netty
+ * @description: server
  * @author: dengbin
- * @create: 2018-11-26 15:11
+ * @create: 2018-11-26 17:08
  **/
 
-public class TestServer {
+public class MyServer {
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
+
         try {
-            //用于启动服务端
+
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
-                    .childHandler(new TestServerInitializer());
-            ChannelFuture sync = serverBootstrap.bind(8888).sync();
-            sync.channel().closeFuture().sync();
+                    .childHandler(new MyServerInitializer());
+            ChannelFuture channelFuture = serverBootstrap.bind(8888).sync();
+            channelFuture.channel().closeFuture().sync();
         }finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
-
     }
 }

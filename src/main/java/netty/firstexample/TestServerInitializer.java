@@ -1,5 +1,10 @@
 package netty.firstexample;
 
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.http.HttpServerCodec;
+
 /**
  * @program: netty
  * @description:
@@ -7,5 +12,11 @@ package netty.firstexample;
  * @create: 2018-11-26 15:19
  **/
 
-public class TestServerInitializer {
+public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
+    @Override
+    protected void initChannel(SocketChannel socketChannel) throws Exception {
+        ChannelPipeline pipeline = socketChannel.pipeline();
+        pipeline.addLast("httpServerCodec", new HttpServerCodec());
+        pipeline.addLast("testHttpServerHandler", new TestHttpServerHandler());
+    }
 }
