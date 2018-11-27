@@ -4,7 +4,9 @@ netty/thirdexample/MyChatClient.class
 netty/secondexample/MyClientHandler.class
 netty/thirdexample/MyChatServerInitializer.class
 nio/NIODemo.class
+netty/fourthexample/MyServerInitializer.class
 netty/firstexample/TestHttpServerHandler.class
+netty/fourthexample/MyServerHandler.class
 netty/thirdexample/MyChatServer.class
 netty/secondexample/MyServerHandler.class
 netty/firstexample/TestServer.class
@@ -13,5 +15,7 @@ netty/secondexample/MyClientInitializer.class
 netty/firstexample/TestServerInitializer.class
 netty/secondexample/MyServer.class
 netty/thirdexample/MyChatServerHandler.class
+netty/fourthexample/MyServer.class
 netty/secondexample/MyServerInitializer.class
+netty/fourthexample/MyServerHandler$1.class
 netty/thirdexample/MyChatClientHandler.class
